@@ -53,7 +53,7 @@ function Main() {
       </div>
       <p className="text-2xl">Valor ingresado: ${ingreso}</p>{" "}
       {/* Para visualizar el valor */}
-      <div style={{ marginTop: "30px" }}>
+      <div className="mt-6">
         <label htmlFor="fecha-ingreso" className="text-2xl">
           Fecha:{" "}
         </label>
@@ -66,6 +66,12 @@ function Main() {
         />
       </div>
       <p className="text-2xl">Fecha de ingreso: {fechaIngreso}</p>
+      <button
+        className="mt-6 bg-blue-500 text-white p-2 rounded-md"
+        onClick={guardarIngreso}
+      >
+        Guardar Ingreso
+      </button>
     </main>
   );
 }
