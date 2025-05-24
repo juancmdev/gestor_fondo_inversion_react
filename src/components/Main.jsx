@@ -4,6 +4,8 @@ import { database, ref, push } from "./firebaseConfig";
 function Main() {
   const [ingreso, setIngreso] = useState("");
   const [fechaIngreso, setFechaIngreso] = useState("");
+  const [valorUnidad, setValorUnidad] = useState("");
+  const [acumuladoInvertido, setAcumuladoInvertido] = useState("");
 
   const handleIngresoChange = (event) => {
     setIngreso(event.target.value);
@@ -13,14 +15,25 @@ function Main() {
     setFechaIngreso(event.target.value);
   };
 
+  const handleValorUnidadChange = (event) => {
+    setValorUnidad(event.target.value);
+  };
+
+  const handleAcumuladoInvertidoChange = (event) => {
+    setAcumuladoInvertido(event.target.value);
+  };
+
   const guardarIngreso = () => {
-    if (ingreso && fechaIngreso) {
+    if (ingreso && fechaIngreso && valorUnidad && acumuladoInvertido) {
+      // Aquí puedes agregar la lógica para guardar el ingreso en tu base de datos
       // Obtiene una referencia al nodo 'ingresos' en tu base de datos
       const ingresosRef = ref(database, "ingresos");
       // Agrega un nuevo registro a la lista de ingresos
       push(ingresosRef, {
         monto: ingreso,
         fecha: fechaIngreso,
+        valorUnidad: valorUnidad,
+        acumuladoInvertido: acumuladoInvertido,
       })
         .then(() => {
           // Opcional: Mostrar un mensaje de éxito o limpiar el formulario
