@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { database, ref, push, onValue } from "./firebaseConfig";
+import { database, ref, push, onValue } from "../firebaseConfig";
+import HistorialIngresos from "./HistorialIngresos";
 
 function Main() {
   const [ingreso, setIngreso] = useState("");
